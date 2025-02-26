@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SndMauiApp.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                x:Name="CatImage"
+                Source="crazy_cat.jpg"
+                WidthRequest="300"
+                Aspect="AspectFit"
+                IsVisible="True"
+                />
+            <Image
+                x:Name="DogImage"
+                Source="crazy_dog.jpg"
+                WidthRequest="300"
+                Aspect="AspectFit"
+                IsVisible="False"
+      />
+
+            <Label
+                Text="Hello, World!"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                x:Name="animalText"
+                Text="Du har tittat på katten 1 gång, du har tittat på hunden 0 gånger"
+                Style="{StaticResource SubHeadline}"
+                />
+            
+
+            <Button
+                 x:Name="DogBtn"
+                 Text="Visa hunden" 
+                 Clicked="ShowDog"
+                 HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="CatBtn"
+                Text="Visa katten" 
+                Clicked="ShowCat"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
