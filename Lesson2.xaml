@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Toolkit.NumericEntry;assembly=Syncfusion.Maui.Toolkit"
              x:Class="SndMauiApp.Lesson2"
-             Title="Övning 2">
+             Title="Kalkylatir">
 
     <Grid
-        Padding = "10"
+        Padding="10"
         ColumnSpacing="10"
         RowSpacing="10"
+        RowDefinitions="100,50,*"
+        ColumnDefinitions=".5*,.5*,.5*,.5*">
+
+        <editors:SfNumericEntry x:Name="firstNumber" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Placeholder="Första siffran"/>
+        <editors:SfNumericEntry x:Name="secondNumber" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Placeholder="Andra siffran"/>
         
-        RowDefinitions="100,*,*"
-        ColumnDefinitions=".5*,.5*"
-        
-        >
+        <Button Text="+" Grid.Row="1" Grid.Column="0" WidthRequest="50" Clicked="OnAddButtonClicked" />
+        <Button Text="-" Grid.Row="1" Grid.Column="1" WidthRequest="50" Clicked="OnSubtractButtonClicked" />
+        <Button Text="*" Grid.Row="1" Grid.Column="2" WidthRequest="50" Clicked="OnMultiplyButtonClicked" />
+        <Button Text="/" Grid.Row="1" Grid.Column="3" WidthRequest="50" Clicked="OnDivideButtonClicked" />
+
+        <Label x:Name="resultLabel" Text="Empty" Grid.Row="2" Grid.ColumnSpan="4" HorizontalOptions="Center" />
     </Grid>
 </ContentPage>
