@@ -9,20 +9,20 @@ public partial class Lesson2 : ContentPage
 
     private void OnAddButtonClicked(object sender, EventArgs e)
     {
-        double result = (double)firstNumber.Value + (double)secondNumber.Value;
+        double result = (double)firstNumber.Value! + (double)secondNumber.Value!;
         resultLabel.Text = $"{result}";
 
     }
 
     private void OnSubtractButtonClicked(object sender, EventArgs e)
     {
-        double result = (double)firstNumber.Value + (double)secondNumber.Value;
+        double result = (double)firstNumber.Value! + (double)secondNumber.Value!;
         resultLabel.Text = $"{result}";
     }
 
     private void OnMultiplyButtonClicked(object sender, EventArgs e)
     {
-        double result = (double)firstNumber.Value * (double)secondNumber.Value;
+        double result = (double)firstNumber.Value! * (double)secondNumber.Value!;
         resultLabel.Text = $"{result}";
     }
 
@@ -31,8 +31,8 @@ public partial class Lesson2 : ContentPage
         {
             if (secondNumber.Value != 0)
             {
-                double result = (double)firstNumber.Value / (double)secondNumber.Value;
-                resultLabel.Text = $"{result:f4}";
+                double result = (double)firstNumber.Value! / (double)secondNumber.Value!;
+                resultLabel.Text = $"{result:f3}";
             }
             else
             {
