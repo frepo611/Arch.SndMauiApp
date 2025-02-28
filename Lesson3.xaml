@@ -2,18 +2,31 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SndMauiApp"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Toolkit.Buttons;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              x:Class="SndMauiApp.Lesson3"
              Title="Klockan">
     <ContentPage.Resources>
         <local:ClockDrawable x:Key="clockDrawable" />
     </ContentPage.Resources>
-    <VerticalStackLayout>
+    <VerticalStackLayout Spacing="20">
+
         <GraphicsView x:Name="clockView"
                      Drawable="{StaticResource clockDrawable}"
                      HeightRequest="300"
                      WidthRequest="400" />
-        <Button x:Name="startButton" 
-                Text="Starta klockan" 
+        <Button x:Name="startButton"
+                Text="Starta klockan"
+                WidthRequest="150"
                 Clicked="OnStartButtonClicked"/>
+        <buttons:SfButton x:Name="resetButton" 
+                          Text="Nollställ klockan"
+                          WidthRequest="150"
+                          ShowIcon="True"
+                          Clicked="resetButton_Clicked"
+                         >
+        </buttons:SfButton>
+            
+            
     </VerticalStackLayout>
 </ContentPage>

@@ -1,4 +1,4 @@
-using Microsoft.Maui.Graphics;
+using System.Diagnostics;
 
 namespace SndMauiApp;
 
@@ -8,16 +8,28 @@ public class ClockDrawable : IDrawable
     private const float CENTER_Y = 150;
     private const float RADIUS = 100;
     
-    private DateTime currentTime;
-
+    private Stopwatch _stopwatch;
+    private TimeSpan _elapsedTime;
     public ClockDrawable()
     {
-        currentTime = DateTime.Now;
+        _stopwatch = new Stopwatch();
     }
-
-    public void UpdateTime(DateTime time)
+    public void StartStopwatch()
     {
-        currentTime = time;
+        _stopwatch.Start();
+    }
+    public void StopStopwatch()
+    {
+        _stopwatch.Stop();
+    }
+    public void ResetStopwatch()
+    {
+        _stopwatch.Reset();
+        UpdateTime();
+    }
+    public void UpdateTime()
+    {
+        _elapsedTime = _stopwatch.Elapsed;
     }
 
     public void Draw(ICanvas canvas, RectF dirtyRect)
@@ -30,11 +42,12 @@ public class ClockDrawable : IDrawable
 
 
         // Calculate hand angles
-        float secondAngle = (float)(currentTime.Second * 6 * Math.PI / 180); // 6 degrees per second
-        float minuteAngle = (float)((currentTime.Minute + currentTime.Second / 60.0) * 6 * Math.PI / 180); // 6 degrees per minute
+        float secondAngle = (float)(_elapsedTime.Seconds * 6 * Math.PI / 180); // 6 degrees per second
+        float minuteAngle = (float)((_elapsedTime.Minutes + _elapsedTime.Seconds / 60.0) * 6 * Math.PI / 180); // 6 degrees per minute
 
         // Draw minute hand
         canvas.StrokeDashPattern = default;
+        canvas.StrokeLineCap = LineCap.Round;
         canvas.StrokeColor = Colors.Red;
         canvas.StrokeSize = 3;
         float minuteHandLength = RADIUS * 0.8f;
