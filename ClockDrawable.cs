@@ -10,6 +10,8 @@ public class ClockDrawable : IDrawable
     
     private Stopwatch _stopwatch;
     private TimeSpan _elapsedTime;
+    public int Seconds { get; set; }
+    public int Minutes { get; }
     public ClockDrawable()
     {
         _stopwatch = new Stopwatch();
@@ -30,6 +32,7 @@ public class ClockDrawable : IDrawable
     public void UpdateTime()
     {
         _elapsedTime = _stopwatch.Elapsed;
+        Seconds = (int)_stopwatch.Elapsed.TotalSeconds;
     }
 
     public void Draw(ICanvas canvas, RectF dirtyRect)

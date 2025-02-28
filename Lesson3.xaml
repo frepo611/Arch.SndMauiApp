@@ -10,11 +10,38 @@
         <local:ClockDrawable x:Key="clockDrawable" />
     </ContentPage.Resources>
     <VerticalStackLayout Spacing="20">
-
-        <GraphicsView x:Name="clockView"
-                     Drawable="{StaticResource clockDrawable}"
-                     HeightRequest="300"
-                     WidthRequest="400" />
+        <Grid ColumnDefinitions="400,80">
+            <GraphicsView x:Name="clockView"
+                          Grid.Column="0"
+                          Drawable="{StaticResource clockDrawable}"
+                          HeightRequest="300"
+                          WidthRequest="400" />
+            <Label x:Name="secondsLabel"
+                   Grid.Column="1"
+                   BackgroundColor="Bisque"
+                   FontAutoScalingEnabled="True"
+                   Text="0 s"
+                   FontSize="Large"
+                   FontFamily="FluentMaterial"
+                   FontAttributes="Bold"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   >
+            </Label>
+        </Grid>
+        <Border Background="#FF9988"
+        Stroke="LightGray"
+        StrokeShape="RoundRectangle 12"
+        HeightRequest="120"
+        WidthRequest="300"
+                >
+            <DatePicker x:Name="datePicker"
+            BackgroundColor="AliceBlue"
+                    TextColor="BlueViolet"
+                    HorizontalOptions="Center"
+                    >
+            </DatePicker>
+        </Border>
         <Button x:Name="startButton"
                 Text="Starta klockan"
                 WidthRequest="150"
@@ -25,33 +52,33 @@
                           ShowIcon="True"
                           Clicked="resetButton_Clicked">
             <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="CommonStates">
-                <VisualState x:Name="Normal">
-                    <VisualState.Setters>
-                        <Setter Property="Background" Value="Orange"/>
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Checked">
-                    <VisualState.Setters>
-                        <Setter Property="Background" Value="Green"/>
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Hovered">
-                    <VisualState.Setters>
-                        <Setter Property="Background" Value="DeepSkyBlue"/>
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Pressed">
-                    <VisualState.Setters>
-                        <Setter Property="Background" Value="MediumVioletRed"/>
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="Disabled">
-                    <VisualState.Setters>
-                        <Setter Property="Background" Value="#BFC3C7"/>
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="Orange"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Checked">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="Green"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Hovered">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="DeepSkyBlue"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="MediumVioletRed"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="#BFC3C7"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
         </buttons:SfButton>
     </VerticalStackLayout>

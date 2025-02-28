@@ -25,6 +25,7 @@ public partial class Lesson3 : ContentPage
     {
         clockDrawable.UpdateTime();
         clockView.Invalidate();
+        secondsLabel.Text = $"{clockDrawable.Seconds} s";
     }
 
     private void OnStartButtonClicked(object sender, EventArgs e)
@@ -49,6 +50,10 @@ public partial class Lesson3 : ContentPage
     {
         timer.Stop();
         clockDrawable.ResetStopwatch();
+        isClockRunning = false;
+        startButton.Text = "Starta klockan";
+        secondsLabel.Text = $"0 s";
         clockView.Invalidate();
+        datePicker.Date = DateTime.Now;
     }
 }
