@@ -23,10 +23,36 @@
                           Text="Nollställ klockan"
                           WidthRequest="150"
                           ShowIcon="True"
-                          Clicked="resetButton_Clicked"
-                         >
+                          Clicked="resetButton_Clicked">
+            <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Normal">
+                    <VisualState.Setters>
+                        <Setter Property="Background" Value="Orange"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Checked">
+                    <VisualState.Setters>
+                        <Setter Property="Background" Value="Green"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Hovered">
+                    <VisualState.Setters>
+                        <Setter Property="Background" Value="DeepSkyBlue"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Pressed">
+                    <VisualState.Setters>
+                        <Setter Property="Background" Value="MediumVioletRed"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Disabled">
+                    <VisualState.Setters>
+                        <Setter Property="Background" Value="#BFC3C7"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
         </buttons:SfButton>
-            
-            
     </VerticalStackLayout>
 </ContentPage>
